@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { ImageCard } from './components/ImageCard';
+import { SearchBar } from './components/SearchBar';
 
 function App() {
   const [images, setImages] = useState([]);
@@ -14,10 +15,12 @@ function App() {
       setIsLoading(false);
     })
     .catch(err => console.log(err))
-  })
+  }, [term]);
 
   return (
     <div className="App container mx-auto">
+      <SearchBar searchText={(text) => setTerm(text)}></SearchBar>
+
       {isLoading ?
       <h1 className="text-6xl text-center mx-auto"> Loading... </h1>
       : 
