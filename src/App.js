@@ -18,11 +18,15 @@ function App() {
 
   return (
     <div className="App container mx-auto">
+      {isLoading ?
+      <h1 className="text-6xl text-center mx-auto"> Loading... </h1>
+      : 
       <div className="grid grid-cols-3 gap-4">
         {images.map(image => (
           <ImageCard key={image.id} image={image}></ImageCard>
         ))}
       </div>
+      }
     </div>
   );
 }
